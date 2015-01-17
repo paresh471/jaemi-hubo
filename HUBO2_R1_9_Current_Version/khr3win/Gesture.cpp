@@ -149,6 +149,8 @@ ON_BN_CLICKED(IDC_GESTURE_SPEED_FAST, OnGestureSpeedFast)
 ON_BN_CLICKED(IDC_JAEMI_SAYS_SCRIPT1, OnJaemiSaysScript1)
 ON_BN_CLICKED(IDC_JAEMI_SAYS_SCRIPT2, OnJaemiSaysScript2)
 	ON_BN_CLICKED(IDC_JAEMI_SAYS_CANCEL, OnJaemiSaysCancel)
+	ON_BN_CLICKED(IDC_GESTURE_RAISE_RIGHT_ARM2, OnGestureArmGunPump)
+	ON_BN_CLICKED(IDC_GESTURE_RAISE_ARM_PUMP, OnGestureRaiseArmPump)
 	//}}AFX_MSG_MAP
 ON_MESSAGE(WM_COMM_READ2, OnCommunication)  // dan edit
 //ON_MESSAGE(WM_COMM_READ2, OnCom2Check)		// dan edit
@@ -4389,3 +4391,35 @@ void CGesture::OnJaemiSaysCancel()
 }
 
 
+
+void CGesture::OnGestureArmGunPump() 
+{
+
+}
+
+void CGesture::OnGestureRaiseArmPump() 
+{
+	// TODO: Add your control notification handler code here
+		// TODO: Add your control notification handler code here
+	int		JointIndex;
+	int		t;
+	int		T = 600;
+	
+	int		MotionNo;
+	MotionNo = 47;
+	if(theApp.m_pSharedMemory->MotionFlag[MotionNo] == FALSE)
+	{
+		GetDlgItem(IDC_GESTURE_RAISE_ARM_PUMP)->EnableWindow(FALSE);
+		/*
+		//theApp.m_pSharedMemory->MotionFlag[MotionNo] = FALSE;
+		
+		theApp.m_pSharedMemory->MotionLength[MotionNo] = T;
+		*/
+		theApp.m_pSharedMemory->MotionFlagALL = 1;
+		theApp.m_pSharedMemory->MotionFlag[MotionNo] = TRUE;
+		//theApp.m_pSharedMemory->PROFTime[11] = 0;
+		
+		theApp.m_pSharedMemory->PROFTime[19] = 0;
+		theApp.m_pSharedMemory->MOTION_Stop = 0;
+	}
+}

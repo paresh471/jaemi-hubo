@@ -146,6 +146,8 @@ protected:
 	afx_msg void OnJaemiSaysScript1();
 	afx_msg void OnJaemiSaysScript2();
 	afx_msg void OnJaemiSaysCancel();
+	afx_msg void OnGestureArmGunPump();
+	afx_msg void OnGestureRaiseArmPump();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
